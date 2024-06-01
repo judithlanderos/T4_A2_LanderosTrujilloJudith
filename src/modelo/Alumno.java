@@ -1,6 +1,7 @@
 package modelo;
 
 public class Alumno {
+    //variables de clase
     private String numControl;
     private String nombre;
     private String primerAp;

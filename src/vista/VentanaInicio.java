@@ -5,6 +5,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 
 public class VentanaInicio extends JFrame {
@@ -57,6 +58,24 @@ public class VentanaInicio extends JFrame {
         add(btnBajas);
         add(btnCambios);
         add(btnConsultas);
+    }
+
+    public void actualizarTablas(JTable tabla) {
+        final String CONTROLADOR_JDBC = "com.mysql.cj.jbc.Driver";
+        String URL = "jdbc:mysql://localhost:3306/BD_Escuela_Topicos_2024";
+        final String CONSULTA = "SELECT * FROM alumnos";
+
+        try {
+            ResultSetTableModel modelo = new ResultSetTableModel(CONTROLADOR_JDBC, URL, CONSULTA);
+            tabla.setModel(modelo);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error en la consulta");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void actualizarTablaAlumnos() {
+        actualizarTablas(tablaAlumnos);
     }
 
     public static void main(String[] args) {
