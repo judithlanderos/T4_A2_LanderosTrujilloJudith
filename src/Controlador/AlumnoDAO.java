@@ -74,15 +74,14 @@ public class AlumnoDAO {
         try{
             rs.next();
             do{
-                String nc= rs.getString(1);
-                String curp= rs.getString("CURP");
-                String n = rs.getString("Nombre");
-                String primer = rs.getString("Primer_Ap");
-                String segun = rs.getString("Segundo_AP");
-                String fec = rs.getString("Fecha_Nac");
-                byte e = rs.getByte("Edad");
-                byte s = rs.getByte("Semestre");
-                String c = rs.getString("Carrera");
+                String Num_Control= rs.getString("Num_Control");
+                String Nombre = rs.getString("Nombre");
+                String Primer_Ap = rs.getString("Primer_Ap");
+                String Segundo_Ap = rs.getString("Segundo_AP");
+              //  String fec = rs.getString("Fecha_Nac");
+                byte Edad = rs.getByte("Edad");
+                byte Semestre = rs.getByte("Semestre");
+                String Carrera = rs.getString("Carrera");
 
 
             }while(rs.next());
